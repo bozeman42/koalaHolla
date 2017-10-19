@@ -36,6 +36,7 @@ function addButtonClick(){
 
   if(editing === true){
     editing = false;
+    $('#status').text('Add Koalas');
     sendEdits();
   } else {
     // call saveKoala with the new obejct
@@ -76,7 +77,7 @@ function saveKoala( newKoala ){
 
 //DELETE AJAX call to remove a koala
 function deleteKoala(){
-  id = $(this).parent().parent().data('koala.id');
+  id = $(this).closest('tr').data('koala').id;
   console.log(id);
   $.ajax({
     method: 'DELETE',
@@ -104,7 +105,7 @@ function appendToDom(koalas) {
 }
 
 function markReadyForTransfer() {
-  id = $(this).parent().parent().data('koala.id');
+  id = $(this).closest('tr').data('koala').id;
   console.log(id);
   $.ajax({
     method: 'PUT',
@@ -118,13 +119,15 @@ function markReadyForTransfer() {
 
 function editKoalasFunction(){
 
-  var name = $(this).closest('tr').data('koala.name');
-  var age = $(this).closest('tr').data('koala.age');
-  var gender = $(this).closest('tr').data('koala.gender');
-  var readyForTransfer = $(this).closest('tr').data('koala.readyfortransfer');
-  var notes = $(this).closest('tr').data('koala.notes');
+  var name = $(this).closest('tr').data('koala').name;
+  var age = $(this).closest('tr').data('koala').age;
+  var gender = $(this).closest('tr').data('koala').gender;
+  var readyForTransfer = $(this).closest('tr').data('koala').readyfortransfer;
+  var notes = $(this).closest('tr').data('koala').notes;
   editingId = $(this).closest('tr').data('koala').id;
-  console.log('Editing ID is ', editingId);
+  editing = true;
+  $('#status').text('Editing Mode!');
+
   $('#nameIn').val(name);
   $('#ageIn').val(age);
   $('#genderIn').val(gender);
