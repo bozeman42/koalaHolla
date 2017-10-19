@@ -132,24 +132,6 @@ function editKoalasFunction(){
   $('#genderIn').val(gender);
   $('#readyForTransferIn').val(readyForTransfer);
   $('#notesIn').val(notes);
-  
-  var updateKoala = {
-    name: name,
-    age: age,
-    gender: gender,
-    readyfortransfer: readyForTransfer,
-    notes: notes
-  }
-  
-  $.ajax({
-    method: 'PUT',
-    URL: '/koalas/update/',
-    data: updateKoala
-  }).done(function(response){
-    getKoalas();
-  }).fail(function(error){
-    console.log('error getting update koalas back:' , error)
-  })
 }; // end PUT ajax
 
 function sendEdits() {
@@ -172,6 +154,7 @@ function sendEdits() {
     URL: '/koalas/' + editingId,
     data: updateKoala
   }).done(function(response){
+    console.log('send edits function response:', response)
     getKoalas();
   }).fail(function(error){
     console.log('error getting update koalas back:' , error)
