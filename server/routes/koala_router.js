@@ -32,7 +32,28 @@ router.get('/',function(req,res){
   });
 });
 
+router.post('/',function(req,res){
+  var koala = req.body;
+  console.log(koala);
 
+  pool.connect(function(errorConnectingToDB, db, done) {
+    if(errorConnectingToDB){
+        console.log('Only a flesh wound - error connecting to db', errorConnectingToDB);
+        res.sendStatus(500);
+    } else {
+      var queryText = 'INSERT INTO "koala" ("name", "gender", "age", "readyfortransfer", "notes") VALUES ($1 , $2, $3, $4, $5);';
+      db.query(queryText,[koala.name, koala.gender, koala.age, koala.readyForTransfer, koala.notes], function(errorMakingQuery, result){
+        done();
+        if(errorMakingQuery){
+          console.log('I want to suck your blood - error making query', errorMakingQuery, result);
+          res.sendStatus(500);
+        } else {
+          res.send(result.rows);
+        }
+      });
+    }
+  });
+});
 
 
 
