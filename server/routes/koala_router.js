@@ -59,7 +59,7 @@ router.put('/:id',function(req,res){ //update koala info PUT
   var koalaId = req.params.id;
   var koala = req.body;
   console.log(koala);
-
+  console.log('koala edit test', koalaId,koala);
   pool.connect(function(errorConnectingToDB, db, done) {
     if(errorConnectingToDB){
         console.log('Only a flesh wound - error connecting to db', errorConnectingToDB);
