@@ -62,7 +62,7 @@ function saveKoala( newKoala ){
 }
 
 //DELETE AJAX call to remove a koala
-function delete() {
+function deleteKoala(){
   id = $(this).parent().parent().data('id');
   console.log(id);
   $.ajax({
