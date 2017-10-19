@@ -119,7 +119,7 @@ function appendToDom(koalas) {
     } else {
       button = '';
     }
-    var $tr = $('<tr data-id="' + koalas[i].id + '"><td>' + koalas[i].name + '</td><td>' + koalas[i].age + '</td><td>' + koalas[i].gender + '</td><td>' + koalas[i].readyfortransfer + '</td><td>' + koalas[i].notes + '</td><td>' + button + '</td><td>' + '<button class="btn btn-default editKoalas">Edit</button>' + '</td><td>' + '<button class="btn btn-warning delete">Delete</button>' + '</td></tr>');
+    var $tr = $('<tr data-id="' + koalas[i].id + '"><td>' + koalas[i].name + '</td><td>' + koalas[i].age + '</td><td>' + koalas[i].gender + '</td><td>' + koalas[i].readyfortransfer + '</td><td>' + koalas[i].notes + '</td><td>' + button + '</td><td>' + '<button class="btn btn-secondary editKoalas">Edit</button>' + '</td><td>' + '<button class="btn btn-danger delete">Delete</button>' + '</td></tr>');
     $tr.data('koala', koalas[i]);
     $('#viewKoalas').append($tr);
   }
