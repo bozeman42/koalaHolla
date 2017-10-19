@@ -126,7 +126,7 @@ function editKoalasFunction(){
   var readyForTransfer = $(this).parent().parent().data('koala.readyfortransfer');
   var notes = $(this).parent().parent().data('koala.notes');
   editingId = $(this).parent().parent().data('koala.id');
-
+  console.log('Editing ID is ', editingId);
   $('#nameIn').val(name);
   $('#ageIn').val(age);
   $('#genderIn').val(gender);
