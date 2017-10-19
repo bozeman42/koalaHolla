@@ -100,8 +100,6 @@ function appendToDom(koalas) {
     var $tr = $('<tr><td>' + koalas[i].name + '</td><td>' + koalas[i].age + '</td><td>' + koalas[i].gender + '</td><td>' + koalas[i].readyfortransfer + '</td><td>' + koalas[i].notes + '</td><td>' + button + '</td><td>' + '<button class="editKoalas">Edit</button>' + '</td><td>' + '<button class="delete">Delete</button>' + '</td></tr>');
     $tr.data('koala', koala);
     $('#viewKoalas').append($tr);
-    
-
   }
 }
 
@@ -120,12 +118,12 @@ function markReadyForTransfer() {
 
 function editKoalasFunction(){
 
-  var name = $(this).parent().parent().data('koala.name');
-  var age = $(this).parent().parent().data('koala.age');
-  var gender = $(this).parent().parent().data('koala.gender');
-  var readyForTransfer = $(this).parent().parent().data('koala.readyfortransfer');
-  var notes = $(this).parent().parent().data('koala.notes');
-  editingId = $(this).parent().parent().data('koala.id');
+  var name = $(this).closest('tr').data('koala.name');
+  var age = $(this).closest('tr').data('koala.age');
+  var gender = $(this).closest('tr').data('koala.gender');
+  var readyForTransfer = $(this).closest('tr').data('koala.readyfortransfer');
+  var notes = $(this).closest('tr').data('koala.notes');
+  editingId = $(this).closest('tr').data('koala.id');
   console.log('Editing ID is ', editingId);
   $('#nameIn').val(name);
   $('#ageIn').val(age);
