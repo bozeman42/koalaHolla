@@ -8,7 +8,8 @@ function readyNow(){
   getKoalas();
   // add koala button click
   $( '#addButton' ).on( 'click', addButtonClick);
-  $( '#viewKoalas' ).on('click', '.delete', deleteKoala)
+  $( '#viewKoalas' ).on('click', '.delete', deleteKoala);
+  $( '#viewKoalas' ).on('click', '.transfer', markReadyForTransfer);
 }
 
 function addButtonClick(){
@@ -78,15 +79,25 @@ function deleteKoala(){
 
 function appendToDom(koalas) {
   $('#viewKoalas').empty();
-  
-
   for(var i=0; i<koalas.length; i++){
     if(koalas[i].readyfortransfer === false){
-      var button = '<button id="transfer">Ready for transfer</button>';
+      var button = '<button class="transfer">Ready for transfer</button>';
     } else {
       button = '';
     }
-
     $('#viewKoalas').append('<tr data-id="' + koalas[i].id + '"><td>' + koalas[i].name + '</td><td>' + koalas[i].age + '</td><td>' + koalas[i].gender + '</td><td>' + koalas[i].readyfortransfer + '</td><td>' + koalas[i].notes + '</td><td>' + button + '</td><td>' + '<button class="delete">Delete</button>' + '</td></tr>');
   }
+}
+
+function markReadyForTransfer() {
+  id = $(this).parent().parent().data('id');
+  console.log(id);
+  $.ajax({
+    method: 'PUT',
+    url: '/koalas/ready/' + id
+  }).done(function(response){
+    getKoalas();
+  }).fail(function(error){
+    console.log('Error marking ready for transfer', error);
+  })
 }
