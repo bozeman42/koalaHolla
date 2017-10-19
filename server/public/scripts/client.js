@@ -93,12 +93,12 @@ function appendToDom(koalas) {
   $('#viewKoalas').empty();
   for(var i=0; i<koalas.length; i++){
     if(koalas[i].readyfortransfer === false){
-      var button = '<button class="transfer">Ready for transfer</button>';
+      var button = '<button class="btn btn-success transfer">Ready for transfer</button>';
       //var koala = koalas[i];
     } else {
       button = '';
     }
-    var $tr = $('<tr data-id="' + koalas[i].id + '"><td>' + koalas[i].name + '</td><td>' + koalas[i].age + '</td><td>' + koalas[i].gender + '</td><td>' + koalas[i].readyfortransfer + '</td><td>' + koalas[i].notes + '</td><td>' + button + '</td><td>' + '<button class="editKoalas">Edit</button>' + '</td><td>' + '<button class="delete">Delete</button>' + '</td></tr>');
+    var $tr = $('<tr data-id="' + koalas[i].id + '"><td>' + koalas[i].name + '</td><td>' + koalas[i].age + '</td><td>' + koalas[i].gender + '</td><td>' + koalas[i].readyfortransfer + '</td><td>' + koalas[i].notes + '</td><td>' + button + '</td><td>' + '<button class="btn btn-default editKoalas">Edit</button>' + '</td><td>' + '<button class="btn btn-warning delete">Delete</button>' + '</td></tr>');
     $tr.data('koala', koalas[i]);
     $('#viewKoalas').append($tr);
   }
