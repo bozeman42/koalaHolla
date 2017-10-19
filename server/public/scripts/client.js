@@ -10,7 +10,7 @@ function readyNow(){
   $( '#addButton' ).on( 'click', addButtonClick);
   $( '#viewKoalas' ).on('click', '.delete', deleteKoala);
   $( '#viewKoalas' ).on('click', '.transfer', markReadyForTransfer);
-  $( '.editKoalas').on('click', editKoalasFunction)
+  $( '#viewKoalas').on('click', '.editKoalas', editKoalasFunction)
 }
 
 var editing = false;
