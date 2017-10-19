@@ -12,7 +12,25 @@ var config = {
 
 var pool = new pg.Pool(config);
 
-
+router.get('/',function(req,res){
+  pool.connect(function(errorConnectingToDB, db, done) {
+    if(errorConnectingToDB){
+        console.log('Only a flesh wound - error connecting to db', errorConnectingToDB);
+        res.sendStatus(500);
+    } else {
+      var queryText = 'SELECT * FROM "koala";';
+      db.query(queryText, function(errorMakingQuery, result){
+        done();
+        if(errorMakingQuery){
+          console.log('I want to suck your blood - error making query', errorMakingQuery, result)
+          res.sendStatus(500);
+        } else {
+          res.send(result.rows);
+        }
+      });
+    }
+  });
+});
 
 
 
