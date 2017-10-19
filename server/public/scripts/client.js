@@ -149,10 +149,13 @@ function sendEdits() {
     readyfortransfer: readyForTransfer,
     notes: notes
   }
+
+  console.log('sendEdits and the editingID is:', editingId);
+  console.log('This is the updateKoala:', updateKoala);
   
   $.ajax({
     method: 'PUT',
-    URL: '/koalas/' + editingId,
+    url: '/koalas/' + editingId,
     data: updateKoala
   }).done(function(response){
     console.log('send edits function response:', response)
