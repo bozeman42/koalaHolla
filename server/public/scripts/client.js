@@ -146,7 +146,7 @@ function sendEdits() {
     name: name,
     age: age,
     gender: gender,
-    readyfortransfer: readyForTransfer,
+    readyForTransfer: readyForTransfer,
     notes: notes
   }
 
