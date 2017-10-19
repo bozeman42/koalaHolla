@@ -44,3 +44,16 @@ Sample Output
 Your final product may look something like this:
 
 ![sample](sample.png)
+
+Table Setup
+--------
+```SQL
+CREATE TABLE "koala"(
+	"id" serial PRIMARY KEY,
+	"name" VARCHAR(100),
+	"gender" VARCHAR (2),
+	"age" INTEGER,
+	"readyfortransfer" BOOLEAN,
+	"notes" VARCHAR(500)
+);
+```
