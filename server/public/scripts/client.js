@@ -8,6 +8,7 @@ function readyNow(){
   getKoalas();
   // add koala button click
   $( '#addButton' ).on( 'click', addButtonClick);
+  $( '#viewKoalas' ).on('click', '.delete', deleteKoala)
 }
 
 function addButtonClick(){
@@ -78,6 +79,6 @@ function deleteKoala(){
 function appendToDom(koalas) {
   $('#viewKoalas').empty();
   for(var i=0; i<koalas.length; i++){
-    $('#viewKoalas').append('<tr data-id="' + koalas[i].id + '"><td>' + koalas[i].name + '</td><td>' + koalas[i].age + '</td><td>' + koalas[i].gender + '</td><td>' + koalas[i].readyfortransfer + '</td><td>' + koalas[i].notes + '</td><td>' + '<button class="delete">Delete</button>' + '</td></tr>');
+    $('#viewKoalas').append('<tr data-id="' + koalas[i].id + '"><td>' + koalas[i].name + '</td><td>' + koalas[i].age + '</td><td>' + koalas[i].gender + '</td><td>' + koalas[i].readyfortransfer + '</td><td>' + koalas[i].notes + '</td><td class="ready">' + '</td><td>' + '<button class="delete">Delete</button>' + '</td></tr>');
   }
 }
