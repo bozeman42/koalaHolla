@@ -1,3 +1,9 @@
+
+
+Routes
+------
+
+
 This must stop:
 ---------------
 ![Nevar again](https://i.makeagif.com/media/8-22-2014/GO_DT4.gif)
@@ -45,15 +51,3 @@ Your final product may look something like this:
 
 ![sample](sample.png)
 
-Table Setup
---------
-```SQL
-CREATE TABLE "koala"(
-	"id" serial PRIMARY KEY,
-	"name" VARCHAR(100),
-	"gender" VARCHAR (2),
-	"age" INTEGER,
-	"readyfortransfer" BOOLEAN,
-	"notes" VARCHAR(500)
-);
-```
