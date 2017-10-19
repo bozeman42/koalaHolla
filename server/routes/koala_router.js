@@ -55,7 +55,72 @@ router.post('/',function(req,res){
   });
 });
 
+router.put('/:id',function(req,res){
+  var koalaId = req.params.id;
+  var koala = req.body;
+  console.log(koala);
 
+  pool.connect(function(errorConnectingToDB, db, done) {
+    if(errorConnectingToDB){
+        console.log('Only a flesh wound - error connecting to db', errorConnectingToDB);
+        res.sendStatus(500);
+    } else {
+      var queryText = 'UPDATE "koala" SET "name" = $1, "gender" = $2, "age" = $3, "readyfortransfer" = $4, "notes" = $5 WHERE "id" = $6;';
+      db.query(queryText,[koala.name, koala.gender, koala.age, koala.readyForTransfer, koala.notes, koalaId], function(errorMakingQuery, result){
+        done();
+        if(errorMakingQuery){
+          console.log('I want to suck your blood - error making query', errorMakingQuery, result);
+          res.sendStatus(500);
+        } else {
+          res.sendStatus(201);
+        }
+      });
+    }
+  });
+});
+
+router.get('/:id',function(req,res){
+  var koalaId = req.params.id;
+  console.log('GETting koala #'+koalaId);
+  pool.connect(function(errorConnectingToDB, db, done) {
+    if(errorConnectingToDB){
+        console.log('Only a flesh wound - error connecting to db', errorConnectingToDB);
+        res.sendStatus(500);
+    } else {
+      var queryText = 'SELECT * FROM "koala" WHERE "id" = $1';
+      db.query(queryText, [koalaId], function(errorMakingQuery, result){
+        done();
+        if(errorMakingQuery){
+          console.log('I want to suck your blood - error making query', errorMakingQuery, result)
+          res.sendStatus(500);
+        } else {
+          res.send(result.rows);
+        }
+      });
+    }
+  });
+});
+
+router.delete('/:id',function(req,res){
+  var koalaId = req.params.id;
+  pool.connect(function(errorConnectingToDB, db, done) {
+    if(errorConnectingToDB){
+        console.log('Only a flesh wound - error connecting to db', errorConnectingToDB);
+        res.sendStatus(500);
+    } else {
+      var queryText = 'DELETE FROM "koala" WHERE "id" = $1';
+      db.query(queryText, [koalaId], function(errorMakingQuery, result){
+        done();
+        if(errorMakingQuery){
+          console.log('I want to suck your blood - error making query', errorMakingQuery, result)
+          res.sendStatus(500);
+        } else {
+          res.send(result.rows);
+        }
+      });
+    }
+  });
+});
 
 
 module.exports = router;
