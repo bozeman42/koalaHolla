@@ -40,7 +40,7 @@ function getKoalas(){
   }).done(function(response){
     console.log( 'got some koalas: ', response );
     //Append to dom function
-  appendToDom(response);
+    appendToDom(response);
   }).fail(function(error){
     console.log('GET failed:', error);
   })
@@ -62,6 +62,7 @@ function saveKoala( newKoala ){
 }
 
 function appendToDom(koalas) {
+  $('#viewKoalas').empty();
   for(var i=0; i<koalas.length; i++){
     $('#viewKoalas').append('<tr><td>' + koalas[i].name + '</td><td>' + koalas[i].age + '</td><td>' + koalas[i].gender + '</td><td>' + koalas[i].readyfortransfer + '</td><td>' + koalas[i].notes + '</td></tr>');
   }
