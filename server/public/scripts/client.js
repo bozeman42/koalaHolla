@@ -136,11 +136,11 @@ function editKoalasFunction(){
 }; // end PUT ajax
 
 function sendEdits() {
-  var name = $('#nameIn').val(name);
-  var age = $('#ageIn').val(age);
-  var gender = $('#genderIn').val(gender);
-  var readyForTransfer = $('#readyForTransferIn').val(readyForTransfer);
-  var notes = $('#notesIn').val(notes);
+  var name = $('#nameIn').val();
+  var age = $('#ageIn').val();
+  var gender = $('#genderIn').val();
+  var readyForTransfer = $('#readyForTransferIn').val();
+  var notes = $('#notesIn').val();
   
   var updateKoala = {
     name: name,
