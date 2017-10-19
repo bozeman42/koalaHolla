@@ -26,6 +26,24 @@ function addButtonClick(){
   // get user input and put in an object
   // NOT WORKING YET :(
   // using a test object
+var formComplete = true;
+if (name === '') {
+  formComplete = false;
+}
+if (age === '') {
+  formComplete = false;
+}
+if (gender === '') {
+  formComplete = false;
+}
+if (readyForTransfer === '') {
+  formComplete = false;
+}
+if (notes === '') {
+  formComplete = false;
+}
+
+if (formComplete) {
   var objectToSend = {
     name: name,
     age: age,
@@ -42,7 +60,10 @@ function addButtonClick(){
     // call saveKoala with the new obejct
     saveKoala( objectToSend );
   }
-
+  $('input').val('');
+} else {
+  alert("Please complete the form");
+}
 }
 
 // GET AJAX call to server to get koalas
