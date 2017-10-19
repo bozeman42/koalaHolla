@@ -13,3 +13,8 @@
 .jumbotron{
     color: #FFF;
 }
+
+.submit {
+    margin-bottom: 15px;
+    cursor: pointer;
+}

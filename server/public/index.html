@@ -30,12 +30,34 @@
         </div>
       <div id="addKoala">
         <h2 id="status">Add Koala</h2>
-        <input type="text" id="nameIn" value="" placeholder="Name">
-        <input type="number" id="ageIn" value="" placeholder="Age">
-        <input type="text" id="genderIn" value="" placeholder="Gender">
-        <input type="text" id="readyForTransferIn" value="" placeholder="Transfer">
-        <input type="text" id="notesIn" value="" placeholder="Notes">
-        <button type="button" class="btn btn-primary" id="addButton">Add Koala</button>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="name">Name</label>
+            <input class="form-control" type="text" id="nameIn" value="" placeholder="Name">
+          </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="age">Age</label>
+              <input class="form-control" type="number" id="ageIn" value="" placeholder="Age">
+            </div>
+          </div><div class="form-row">
+              <div class="form-group col-md-4">
+                <label for="gender">Gender</label>
+                <input class="form-control" type="text" id="genderIn" value="" placeholder="Gender">
+              </div>
+            </div><div class="form-row">
+                <div class="form-group col-md-4">
+                  <label for="transfer">Ready For Transfer</label>
+                  <input class="form-control" type="text" id="readyForTransferIn" value="" placeholder="Transfer">
+                </div>
+              </div><div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="notes">Notes</label>
+                    <input class="form-control" type="text" id="notesIn" value="" placeholder="Notes">
+                  </div>
+                </div>     
+        <button type="button" class="btn btn-primary submit pull-right" id="addButton">Add Koala</button>
       </div>
       <div>
         <h2>All Koalas</h2>
