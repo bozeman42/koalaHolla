@@ -81,7 +81,7 @@ function appendToDom(koalas) {
   
 
   for(var i=0; i<koalas.length; i++){
-    if(koalas[i].readyForTransfer === false){
+    if(koalas[i].readyfortransfer === false){
       var button = '<button id="transfer">Ready for transfer</button>';
     } else {
       button = '';
