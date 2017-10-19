@@ -1,7 +1,31 @@
 
+Table Setup
+--------
+```SQL
+CREATE TABLE "koala"(
+	"id" serial PRIMARY KEY,
+	"name" VARCHAR(100),
+	"gender" VARCHAR (2),
+	"age" INTEGER,
+	"readyfortransfer" BOOLEAN,
+	"notes" VARCHAR(500)
+);
+```
 
-Routes
+
+Routers
 ------
+Router '/koalas':
+GET - returns {id (int) ,name (str),gender (str), age(int),readyfortransfer(bool), notes (str)}
+GET - /:id, returns koala at row id
+DELETE - /:id, removes koala with row id
+POST - accepts {name (str),gender (str), age(int),readyForTransfer(bool), notes (str)}
+PUT - /:id, accepts {name (str),gender (str), age(int),readyForTransfer(bool), notes (str)}, updates koala with row id
+PUT - '/ready/:id', sets "readyfortransfer" of koala in row id to true 
+
+
+
+
 
 
 This must stop:
