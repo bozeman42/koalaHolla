@@ -61,9 +61,23 @@ function saveKoala( newKoala ){
   })
 }
 
+//DELETE AJAX call to remove a koala
+function delete() {
+  id = $(this).parent().parent().data('id');
+  console.log(id);
+  $.ajax({
+    method: 'DELETE',
+    url: '/koalas/' + id
+  }).done(function(response){
+    getKoalas();
+  }).fail(function(error){
+    console.log('Error deleting', error);
+  })
+}
+
 function appendToDom(koalas) {
   $('#viewKoalas').empty();
   for(var i=0; i<koalas.length; i++){
-    $('#viewKoalas').append('<tr><td>' + koalas[i].name + '</td><td>' + koalas[i].age + '</td><td>' + koalas[i].gender + '</td><td>' + koalas[i].readyfortransfer + '</td><td>' + koalas[i].notes + '</td></tr>');
+    $('#viewKoalas').append('<tr data-id="' + koalas[i].id + '"><td>' + koalas[i].name + '</td><td>' + koalas[i].age + '</td><td>' + koalas[i].gender + '</td><td>' + koalas[i].readyfortransfer + '</td><td>' + koalas[i].notes + '</td><td>' + '<button class="delete">Delete</button>' + '</td></tr>');
   }
 }
