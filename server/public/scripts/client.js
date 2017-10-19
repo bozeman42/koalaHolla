@@ -123,7 +123,7 @@ function editKoalasFunction(){
   var gender = $(this).closest('tr').data('koala.gender');
   var readyForTransfer = $(this).closest('tr').data('koala.readyfortransfer');
   var notes = $(this).closest('tr').data('koala.notes');
-  editingId = $(this).closest('tr').data('koala.id');
+  editingId = $(this).closest('tr').data('koala').id;
   console.log('Editing ID is ', editingId);
   $('#nameIn').val(name);
   $('#ageIn').val(age);
