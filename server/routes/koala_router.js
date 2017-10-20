@@ -10,7 +10,9 @@ var config = {
   idleTimeoutMillis: 30000
 };
 
-var pool = new pg.Pool(config);
+var poolModule = require('../modules/pool.js');
+var pool = poolModule;
+
 
 router.get('/',function(req,res){
   pool.connect(function(errorConnectingToDB, db, done) {
